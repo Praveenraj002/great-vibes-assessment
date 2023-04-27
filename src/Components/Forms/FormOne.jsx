@@ -1,7 +1,32 @@
+import React, { useRef } from "react";
 import FormTitleOne from "./FormTitleOne";
 import Button from "../UI/Button";
 
+// Form 1 which client witnesses when opening the website initially.
 const FormOne = (props) => {
+  // Using React Refs (Reference)
+  const jobTitleInputRef = useRef();
+  const companyNameInputRef = useRef();
+  const industryInputRef = useRef();
+  const locationInputRef = useRef();
+  const remoteTypeInputRef = useRef();
+
+  const onNextHandler = () => {
+    // Input data collected here
+    const enteredJobTitle = jobTitleInputRef.current.value;
+    const enteredCompanyName = companyNameInputRef.current.value;
+    const enteredIndustry = industryInputRef.current.value;
+    const enteredLocation = locationInputRef.current.value;
+    const enteredRemoteType = remoteTypeInputRef.current.value;
+
+    // TESTING - console logging collected data
+    console.log(enteredJobTitle);
+    console.log(enteredCompanyName);
+    console.log(enteredIndustry);
+    console.log(enteredLocation);
+    console.log(enteredRemoteType);
+  };
+
   return (
     <form onSubmit={props.onSubmit}>
       <FormTitleOne />
@@ -12,6 +37,7 @@ const FormOne = (props) => {
         </label>
         <input
           className="card-text border border-placeholderBorderColorGvGv py-2 px-3 rounded-md focus:outline-none mt-1"
+          ref={jobTitleInputRef}
           id="jobTitle"
           type="text"
           placeholder="ex. UX UI Designer"
@@ -25,6 +51,7 @@ const FormOne = (props) => {
         </label>
         <input
           className="card-text border border-placeholderBorderColorGvGv py-2 px-3 rounded-md focus:outline-none mt-1"
+          ref={companyNameInputRef}
           id="companyName"
           type="text"
           placeholder="ex. Google"
@@ -38,6 +65,7 @@ const FormOne = (props) => {
         </label>
         <input
           className="card-text border border-placeholderBorderColorGvGv py-2 px-3 rounded-md focus:outline-none mt-1"
+          ref={industryInputRef}
           id="industry"
           type="text"
           placeholder="ex. Information Technology"
@@ -52,6 +80,7 @@ const FormOne = (props) => {
           </label>
           <input
             className="card-text border border-placeholderBorderColorGvGv py-2 px-3 rounded-md focus:outline-none mt-1 w-full"
+            ref={locationInputRef}
             id="location"
             type="text"
             placeholder=" ex. Chennai"
@@ -65,13 +94,15 @@ const FormOne = (props) => {
           </label>
           <input
             className="card-text border border-placeholderBorderColorGvGv py-2 px-3 rounded-md focus:outline-none mt-1 mb-24 w-full"
+            ref={remoteTypeInputRef}
             id="remote-type"
             type="text"
             placeholder=" ex. In-office"
           />
         </div>
       </div>
-      <Button>Next</Button>
+      {/* Next button with onNext handler function */}
+      <Button onNext={onNextHandler}>Next</Button>
     </form>
   );
 };

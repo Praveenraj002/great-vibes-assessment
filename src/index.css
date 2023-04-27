@@ -15,6 +15,12 @@ html {
   height: 564px;
 }
 
+/* Job Card */
+.job-card{
+  width: 830px;
+  height: 320px;
+}
+
 /* Text Size in Form - Card */
 .card-text {
   font-size: 14px;
@@ -32,4 +38,9 @@ html {
   border: 2px solid #D8D8D8;
   width: 20px;
   height: 20px;
+}
+
+/* Job Card Button -2 */
+.jobCard-btn{
+  border: 1px solid #0C8CE9
 }
