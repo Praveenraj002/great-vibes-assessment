@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import FormTitleTwo from "./FormTitleTwo";
+import Button from "../UI/Button";
 
 const FormTwo = (props) => {
   const experienceInputMinRef = useRef();
@@ -10,6 +11,7 @@ const FormTwo = (props) => {
   const quickApplyInputRef = useRef();
   const externalApplyInputRef = useRef();
 
+  // On save Button clicked
   const onSaveHandler = (event) => {
     event.preventDefault();
     let enteredExperienceMin = experienceInputMinRef.current.value;
@@ -20,6 +22,7 @@ const FormTwo = (props) => {
     let enteredQuickApply = quickApplyInputRef.current.value;
     let enteredExternalApply = externalApplyInputRef.current.value;
 
+    // Logging the Input data
     console.log(enteredExperienceMin);
     console.log(enteredExperienceMax);
     console.log(enteredSalaryMin);
@@ -27,10 +30,19 @@ const FormTwo = (props) => {
     console.log(enteredTotalEmployee);
     console.log(enteredQuickApply);
     console.log(enteredExternalApply);
+
+    // Clearing the Input field
+    experienceInputMinRef.current.value = "";
+    experienceInputMaxRef.current.value = "";
+    salaryInputMinRef.current.value = "";
+    salaryInputMaxRef.current.value = "";
+    totalEmployeeInputRef.current.value = "";
+    quickApplyInputRef.current.value = "";
+    externalApplyInputRef.current.value = "";
   };
 
   return (
-    <form>
+    <form onSubmit={onSaveHandler}>
       <FormTitleTwo />
       {/* Experience */}
       <div className="flex flex-col mb-6">
@@ -93,7 +105,7 @@ const FormTwo = (props) => {
       </div>
 
       {/* Apply Type */}
-      <div className="flex flex-col mb-6">
+      <div className="flex flex-col mb-4">
         <p className="card-text font-semibold">Apply type</p>
         <div className="flex flex-row-reverse gap-4 justify-end mt-1">
           <div className="flex flex-row gap-1">
@@ -125,12 +137,7 @@ const FormTwo = (props) => {
         </div>
       </div>
       <div className="flex flex-row justify-end">
-        <button
-          onClick={onSaveHandler}
-          className="bg-primaryBlueGv text-white text-center rounded-md px-4 py-2"
-        >
-          Save
-        </button>
+        <Button>Save</Button>
       </div>
     </form>
   );

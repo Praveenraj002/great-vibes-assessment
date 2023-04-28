@@ -19,12 +19,25 @@ const FormOne = (props) => {
     const enteredLocation = locationInputRef.current.value;
     const enteredRemoteType = remoteTypeInputRef.current.value;
 
-    // TESTING - console logging collected data
-    console.log(enteredJobTitle);
-    console.log(enteredCompanyName);
-    console.log(enteredIndustry);
-    console.log(enteredLocation);
-    console.log(enteredRemoteType);
+    // Form validation
+    if (
+      enteredJobTitle.trim().length === 0 ||
+      enteredCompanyName.trim().length === 0 ||
+      enteredIndustry.trim().length === 0 ||
+      enteredLocation.trim().length === 0 ||
+      enteredRemoteType.trim().length === 0
+    ) {
+      alert(
+        "INVALID INPUT (Please enter non-empty values and please reload the page to enter data"
+      );
+    } else {
+      // Logging Inputs from the form
+      console.log(enteredJobTitle);
+      console.log(enteredCompanyName);
+      console.log(enteredIndustry);
+      console.log(enteredLocation);
+      console.log(enteredRemoteType);
+    }
   };
 
   return (
