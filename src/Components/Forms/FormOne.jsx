@@ -28,7 +28,7 @@ const FormOne = (props) => {
       enteredRemoteType.trim().length === 0
     ) {
       alert(
-        "INVALID INPUT (Please enter non-empty values and please reload the page to enter data"
+        "Invalid Input: Please enter non empty values and please reload the page to start with step 1"
       );
     } else {
       // Logging Inputs from the form
